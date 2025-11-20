@@ -419,29 +419,4 @@ plt.ylabel("Y")
 plt.legend()
 plt.show()
 """output"""
-  import numpy as np
-import matplotlib.pyplot as plt
-# Sample data
-X = np.linspace(-3, 3, 30)
-Y = np.sin(X) + np.random.randn(30) * 0.1
-# LWR function
-def lwr(x, X, Y, tau):
-    y_pred = []
-    for x0 in x:
-        W = np.exp(- (X - x0)**2 / (2 * tau**2))
-        W = np.diag(W)
-        X_mat = np.vstack((np.ones(len(X)), X)).T
-        theta = np.linalg.pinv(X_mat.T @ W @ X_mat) @ (X_mat.T @ W @ Y)
-        y_pred.append([1, x0] @ theta)
-    return np.array(y_pred)
-# Predict and plot
-X_test = np.linspace(-3, 3, 100)
-Y_pred = lwr(X_test, X, Y, tau=0.5)
-
-plt.scatter(X, Y, color='red', label='Data')
-plt.plot(X_test, Y_pred, color='blue', label='LWR Curve')
-plt.title("Locally Weighted Regression")
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.legend()
-plt.show()
+  
