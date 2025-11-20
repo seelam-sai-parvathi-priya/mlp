@@ -1,0 +1,400 @@
+#1st program
+# Find-S Algorithm in Python
+
+def find_s(examples):
+    # Initialize hypothesis with most specific values
+    hypothesis = ['φ', 'φ', 'φ', 'φ', 'φ', 'φ']
+    
+    # Iterate through all training examples
+    for example in examples:
+        # Consider only positive examples
+        if example[-1].lower() == 'yes':
+            for i in range(len(hypothesis)):
+                if hypothesis[i] == 'φ':
+                    hypothesis[i] = example[i]
+                elif hypothesis[i] != example[i]:
+                    hypothesis[i] = '?'
+    
+    return hypothesis
+
+
+# Training Data (each example = attributes + output)
+data = [
+    ['Sunny', 'Warm', 'Normal', 'Strong', 'Warm', 'Same', 'Yes'],
+    ['Sunny', 'Warm', 'High', 'Strong', 'Warm', 'Same', 'Yes'],
+    ['Rainy', 'Cold', 'High', 'Strong', 'Warm', 'Change', 'No'],
+    ['Sunny', 'Warm', 'High', 'Strong', 'Cool', 'Change', 'Yes']
+]
+
+# Run Find-S algorithm
+hypothesis = find_s(data)
+
+# Display final hypothesis
+print("Final hypothesis:", hypothesis)
+
+#2nd program
+import csv
+
+def load_csv(filename):
+    with open(filename, 'r') as f:
+        return list(csv.reader(f))[1:]  # Skip header row
+
+def candidate_elimination(data):
+    s = ['0'] * (len(data[0]) - 1)
+    g = ['?'] * (len(data[0]) - 1)
+
+    for row in data:
+        attrs, target = row[:-1], row[-1]
+
+        if target.lower() == 'yes':
+            for i in range(len(s)):
+                if s[i] == '0':
+                    s[i] = attrs[i]
+                elif s[i] != attrs[i]:
+                    s[i] = '?'
+        else:  # target == 'no'
+            for i in range(len(s)):
+                if s[i] != '?' and s[i] == attrs[i]:
+                    g[i] = '?'
+
+    print("Final Specific Hypothesis:", s)
+    print("Final General Hypothesis:", g)
+
+
+# --- Main Program ---
+data = load_csv('weather.csv')
+candidate_elimination(data)
+
+#3rd program
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier,export_text
+data={'outlook':['sunny','sunny','overcast','rain','rain','rain','overcast','sunny','sunny','rain','sunny','overcast','overcast','rain'],
+      'temperature':['hot','hot','hot','mild','cool','cool','cool','mild','cool','mild','mild','mild','hot','mild'],
+      'humidity':['high','high','high','high','normal','normal','normal','high','normal','normal','normal','high','normal','high'],
+      'wind':['weak','strong','weak','weak','weak','strong','strong','weak','weak','weak','strong','strong','weak','strong'],
+      'playtennis':['no','no','yes','yes','yes','no','yes','no','yes','yes','yes','yes','yes','no']}
+df=pd.DataFrame(data)
+x= pd.get_dummies(df.drop(columns=['playtennis']))    
+y=df['playtennis']
+#train
+model=DecisionTreeClassifier(criterion="entropy")
+model.fit(x,y)
+tree_rules=export_text(model,feature_names=list(x.columns))
+print(tree_rules)
+new_sample=pd.DataFrame([{
+    'outlook':'overcast',
+    'temperature':'mild',
+    'humidity':'normal',
+    'wind':'weak'
+}])
+new_sample_encoded=pd.get_dummies(new_sample)
+new_sample_encoded=new_sample_encoded.reindex(columns=x.columns,fill_value=0)
+#predict
+prediction=model.predict(new_sample_encoded)
+print("prediction for new sample",prediction[0])
+
+#4th program
+# K-Nearest Neighbors (KNN) Classification using Iris Dataset
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+# Load the Iris dataset
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+# Split the data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.05, random_state=42)
+
+# Number of neighbors
+k = 5
+
+# Create KNN classifier
+knn = KNeighborsClassifier(n_neighbors=k)
+
+# Train the classifier
+knn.fit(X_train, y_train)
+
+# Make predictions
+y_pred = knn.predict(X_test)
+
+print("Predictions on Test Set:\n")
+for i in range(len(y_test)):
+    status = "Correct" if y_pred[i] == y_test[i] else "Wrong"
+    print(f"Sample {i+1}: True Class = {y_test[i]}, Predicted = {y_pred[i]} --> {status}")
+
+# Calculate accuracy
+accuracy = knn.score(X_test, y_test)
+print(f"\nAccuracy: {accuracy * 100:.2f}%")
+
+
+#5th program
+import numpy as np
+
+# Sigmoid activation function and derivative
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def sigmoid_derivative(x):
+    return x * (1 - x)
+
+# XOR Input & Output
+X = np.array([[0,0],
+              [0,1],
+              [1,0],
+              [1,1]])
+
+y = np.array([[0],[1],[1],[0]])
+
+# Initialize weights and biases
+np.random.seed(42)
+weights1 = np.random.rand(2,2)
+weights2 = np.random.rand(2,1)
+bias1 = np.random.rand(1,2)
+bias2 = np.random.rand(1,1)
+
+lr = 0.5   # learning rate
+epochs = 10000  # training cycles
+
+# Training using Backpropagation
+for _ in range(epochs):
+    # Forward pass
+    hidden = sigmoid(np.dot(X, weights1) + bias1)
+    output = sigmoid(np.dot(hidden, weights2) + bias2)
+    
+    # Error calculation
+    error = y - output
+
+    # Backpropagation
+    d_output = error * sigmoid_derivative(output)
+    error_hidden = d_output.dot(weights2.T)
+    d_hidden = error_hidden * sigmoid_derivative(hidden)
+    
+    # Update weights & biases
+    weights2 += hidden.T.dot(d_output) * lr
+    weights1 += X.T.dot(d_hidden) * lr
+    bias2 += np.sum(d_output, axis=0, keepdims=True) * lr
+    bias1 += np.sum(d_hidden, axis=0, keepdims=True) * lr
+
+# Final Output
+print("Final output after training:")
+print(output)
+
+
+#6th program
+import pandas as pd
+from io import StringIO
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
+
+# Tennis dataset
+tennis_csv = """Outlook,Temperature,Humidity,Wind,PlayTennis
+Sunny,Hot,High,Weak,No
+Sunny,Hot,High,Strong,No
+Overcast,Hot,High,Weak,Yes
+Rain,Mild,High,Weak,Yes
+Rain,Cool,Normal,Weak,Yes
+Rain,Cool,Normal,Strong,No
+Overcast,Cool,Normal,Strong,Yes
+Sunny,Mild,High,Weak,No
+Sunny,Cool,Normal,Weak,Yes
+Rain,Mild,Normal,Weak,Yes
+Sunny,Mild,Normal,Strong,Yes
+Overcast,Mild,High,Strong,Yes
+Overcast,Hot,Normal,Weak,Yes
+Rain,Mild,High,Strong,No
+"""
+
+# Convert the CSV string into a pandas DataFrame
+df_tennis = pd.read_csv(StringIO(tennis_csv))
+
+# Split features and target
+X = df_tennis.drop(columns=['PlayTennis'])
+y = df_tennis['PlayTennis']
+
+# One-hot encode categorical features
+X = pd.get_dummies(X)
+
+# Split data into train/test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Train the Naive Bayes model
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+# Test predictions
+y_pred = model.predict(X_test)
+
+print("=== Tennis Dataset ===")
+print("Accuracy:", accuracy_score(y_test, y_pred))
+
+# Predict on new samples
+new_samples = pd.DataFrame([
+    {'Outlook': 'Sunny', 'Temperature': 'Cool', 'Humidity': 'High', 'Wind': 'Weak'},
+    {'Outlook': 'Rain', 'Temperature': 'Mild', 'Humidity': 'Normal', 'Wind': 'Strong'}
+])
+
+# One-hot encode new samples to match training columns
+new_samples = pd.get_dummies(new_samples).reindex(columns=X.columns, fill_value=0)
+
+print("Predictions:", model.predict(new_samples))
+
+#7th program
+!pip install numpy==1.26.4 pgmpy==0.1.19 tqdm --quiet
+
+import urllib.request, io, pandas as pd, numpy as np
+from sklearn.model_selection import train_test_split
+from pgmpy.models import BayesianNetwork
+from pgmpy.estimators import BayesianEstimator
+from pgmpy.inference import VariableElimination
+from sklearn.metrics import accuracy_score
+
+url="https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data"
+cols=["age","sex","cp","trestbps","chol","fbs","restecg","thalach","exang","oldpeak","slope","ca","thal","num"]
+df=pd.read_csv(io.StringIO(urllib.request.urlopen(url).read().decode()),header=None,names=cols)
+df.replace('?',np.nan,inplace=True)
+df[["ca","thal"]]=df[["ca","thal"]].apply(pd.to_numeric,errors='coerce')
+df.dropna(inplace=True)
+df["target"]=(df["num"]>0).astype(int)
+for c in ["age","trestbps","chol","thalach","oldpeak"]:
+    df[c]=pd.qcut(df[c],q=3,labels=False,duplicates='drop')
+disc_cols=["age","trestbps","chol","thalach","oldpeak","cp","slope","ca","thal","sex","exang","target"]
+data=df[disc_cols].astype(int)
+train_df,test_df=train_test_split(data,test_size=0.2,random_state=42,stratify=data["target"])
+model=BayesianNetwork([
+    ("age","trestbps"),("age","chol"),("cp","target"),("trestbps","target"),
+    ("chol","target"),("thalach","target"),("exang","target"),("oldpeak","target"),
+    ("slope","target"),("ca","target"),("thal","target"),("sex","target")
+])
+model.fit(train_df,estimator=BayesianEstimator,prior_type='BDeu',equivalent_sample_size=10)
+infer=VariableElimination(model)
+evidence=test_df.iloc[0].drop("target").to_dict()
+print("\nPosterior Probability:",infer.query(variables=["target"],evidence=evidence))
+preds=test_df.apply(lambda r: infer.map_query(variables=["target"],evidence=r.drop("target").to_dict())["target"],axis=1)
+print(f"\nAccuracy: {accuracy_score(test_df['target'],preds):.3f}")
+
+
+#8th program
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+
+# Sample dataset
+documents = [
+    "I love this movie",
+    "This film is terrible",
+    "I enjoyed this movie",
+    "I hate this film",
+    "What a great movie",
+    "Worst film ever",
+    "I like this movie",
+    "I dislike this film"
+]
+
+labels = ['Positive', 'Negative', 'Positive', 'Negative', 'Positive', 'Negative', 'Positive', 'Negative']
+
+# Convert text to feature vectors
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(documents)
+
+# Split dataset
+X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size=0.25, random_state=42)
+
+# Train Naive Bayes model
+model = MultinomialNB()
+model.fit(X_train, y_train)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Evaluate
+acc = accuracy_score(y_test, y_pred)
+prec = precision_score(y_test, y_pred, pos_label='Positive', zero_division=0)
+rec = recall_score(y_test, y_pred, pos_label='Positive', zero_division=0)
+
+# Display results
+print("Predicted:", y_pred)
+print(f"Accuracy: {acc:.2f}")
+print(f"Precision: {prec:.2f}")
+print(f"Recall: {rec:.2f}")
+
+
+#9th program
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="sklearn.cluster._kmeans")
+
+import os
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.mixture import GaussianMixture
+from sklearn.metrics import silhouette_score
+
+# Optional: environment variable to reduce Windows KMeans warning
+os.environ["OMP_NUM_THREADS"] = "1"
+
+# --- 3 rows, 4 columns dataset ---
+X = np.array([
+    [1.0, 2.0, 1.5, 2.5],
+    [5.0, 6.0, 5.5, 6.5],
+    [9.0, 8.0, 9.5, 8.5]
+])
+
+# --- K-Means ---
+kmeans = KMeans(n_clusters=2, random_state=42, n_init=10)
+kmeans_labels = kmeans.fit_predict(X)
+
+# --- EM Clustering (Gaussian Mixture) ---
+em = GaussianMixture(n_components=2, random_state=42, covariance_type='full')
+em_labels = em.fit_predict(X)
+
+# --- Evaluate clustering ---
+kmeans_score = silhouette_score(X, kmeans_labels)
+em_score = silhouette_score(X, em_labels)
+
+# --- Print results ---
+print("K-Means Cluster Centers:\n", kmeans.cluster_centers_)
+print("\nEM Means:\n", em.means_)
+print("\nSilhouette Score (K-Means):", round(kmeans_score, 3))
+print("Silhouette Score (EM):", round(em_score, 3))
+
+if em_score > kmeans_score:
+    print("\nEM algorithm produced better clustering quality.")
+else:
+    print("\nK-Means algorithm produced better clustering quality.")
+
+
+
+ #10th program
+ import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample data
+X = np.linspace(-3, 3, 30)
+Y = np.sin(X) + np.random.randn(30) * 0.1
+
+# LWR function
+def lwr(x, X, Y, tau):
+    y_pred = []
+    for x0 in x:
+        W = np.exp(- (X - x0)**2 / (2 * tau**2))
+        W = np.diag(W)
+        X_mat = np.vstack((np.ones(len(X)), X)).T
+        theta = np.linalg.pinv(X_mat.T @ W @ X_mat) @ (X_mat.T @ W @ Y)
+        y_pred.append([1, x0] @ theta)
+    return np.array(y_pred)
+
+# Predict and plot
+X_test = np.linspace(-3, 3, 100)
+Y_pred = lwr(X_test, X, Y, tau=0.5)
+
+plt.scatter(X, Y, color='red', label='Data')
+plt.plot(X_test, Y_pred, color='blue', label='LWR Curve')
+plt.title("Locally Weighted Regression")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.legend()
+plt.show()
