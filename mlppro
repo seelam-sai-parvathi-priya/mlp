@@ -26,7 +26,8 @@ data = [
 hypothesis = find_s(data)
 # Display final hypothesis
 print("Final hypothesis:", hypothesis)
-
+"""output"""
+Final hypothesis: ['Sunny', 'Warm', '?', 'Strong', '?', '?']
 
 
 @@@@@2nd program
@@ -56,7 +57,17 @@ def candidate_elimination(data):
 # --- Main Program ---
 data = load_csv('weather.csv')
 candidate_elimination(data)
-
+"""output"""
+Final Specific Hypothesis: ['?', 'Warm', '?', 'Strong', '?', '?']
+Final General Hypothesis: ['?', '?', '?', '?', '?', '?']
+"""weather.csv"""
+Sky,AirTemp,Humidity,Wind,Water,Forecast,EnjoySport
+Sunny,Warm,Normal,Strong,Warm,Same,Yes
+Sunny,Warm,High,Strong,Warm,Same,Yes
+Rainy,Cold,High,Strong,Warm,Change,No
+Sunny,Warm,High,Strong,Cool,Change,Yes
+Sunny,Cold,Normal,Weak,Warm,Same,No
+Rainy,Warm,Normal,Strong,Warm,Same,Yes
 
 
 @@@@@3rd program
@@ -86,7 +97,28 @@ new_sample_encoded=new_sample_encoded.reindex(columns=x.columns,fill_value=0)
 #predict
 prediction=model.predict(new_sample_encoded)
 print("prediction for new sample",prediction[0])
+"""output"""
+|--- outlook_overcast <= 0.50
+|   |--- humidity_high <= 0.50
+|   |   |--- wind_strong <= 0.50
+|   |   |   |--- class: yes
+|   |   |--- wind_strong >  0.50
+|   |   |   |--- outlook_sunny <= 0.50
+|   |   |   |   |--- class: no
+|   |   |   |--- outlook_sunny >  0.50
+|   |   |   |   |--- class: yes
+|   |--- humidity_high >  0.50
+|   |   |--- outlook_sunny <= 0.50
+|   |   |   |--- wind_weak <= 0.50
+|   |   |   |   |--- class: no
+|   |   |   |--- wind_weak >  0.50
+|   |   |   |   |--- class: yes
+|   |   |--- outlook_sunny >  0.50
+|   |   |   |--- class: no
+|--- outlook_overcast >  0.50
+|   |--- class: yes
 
+prediction for new sample yes
 
 
 @@@@@4th program
@@ -115,6 +147,17 @@ for i in range(len(y_test)):
 # Calculate accuracy
 accuracy = knn.score(X_test, y_test)
 print(f"\nAccuracy: {accuracy * 100:.2f}%")
+"""output"""
+Sample 1: True Class = 1, Predicted = 1 --> Correct
+Sample 2: True Class = 0, Predicted = 0 --> Correct
+Sample 3: True Class = 2, Predicted = 2 --> Correct
+Sample 4: True Class = 1, Predicted = 1 --> Correct
+Sample 5: True Class = 1, Predicted = 1 --> Correct
+Sample 6: True Class = 0, Predicted = 0 --> Correct
+Sample 7: True Class = 1, Predicted = 1 --> Correct
+Sample 8: True Class = 2, Predicted = 2 --> Correct
+
+Accuracy: 100.00%
 
 
 
@@ -161,6 +204,12 @@ for _ in range(epochs):
 # Final Output
 print("Final output after training:")
 print(output)
+"""output"""
+Final output after training:
+[[0.01920538]
+ [0.98342777]
+ [0.98341196]
+ [0.01716291]]
 
 
 
@@ -211,6 +260,10 @@ new_samples = pd.DataFrame([
 # One-hot encode new samples to match training columns
 new_samples = pd.get_dummies(new_samples).reindex(columns=X.columns, fill_value=0)
 print("Predictions:", model.predict(new_samples))
+"""output"""
+=== Tennis Dataset ===
+Accuracy: 0.8
+Predictions: ['Yes' 'Yes']
 
 
 
@@ -284,7 +337,11 @@ print("Predicted:", y_pred)
 print(f"Accuracy: {acc:.2f}")
 print(f"Precision: {prec:.2f}")
 print(f"Recall: {rec:.2f}")
-
+"""output"""
+Predicted: ['Negative' 'Negative']
+Accuracy: 1.00
+Precision: 0.00
+Recall: 0.00
 
 
 @@@@@9th program
@@ -321,11 +378,48 @@ if em_score > kmeans_score:
     print("\nEM algorithm produced better clustering quality.")
 else:
     print("\nK-Means algorithm produced better clustering quality.")
+"""output"""
+K-Means Cluster Centers:
+ [[7.  7.  7.5 7.5]
+ [1.  2.  1.5 2.5]]
+EM Means:
+ [[3.  4.  3.5 4.5]
+ [9.  8.  9.5 8.5]]
+Silhouette Score (K-Means): 0.254
+Silhouette Score (EM): 0.075
+K-Means algorithm produced better clustering quality.
 
 
 
 @@@@@10th program
 import numpy as np
+import matplotlib.pyplot as plt
+# Sample data
+X = np.linspace(-3, 3, 30)
+Y = np.sin(X) + np.random.randn(30) * 0.1
+# LWR function
+def lwr(x, X, Y, tau):
+    y_pred = []
+    for x0 in x:
+        W = np.exp(- (X - x0)**2 / (2 * tau**2))
+        W = np.diag(W)
+        X_mat = np.vstack((np.ones(len(X)), X)).T
+        theta = np.linalg.pinv(X_mat.T @ W @ X_mat) @ (X_mat.T @ W @ Y)
+        y_pred.append([1, x0] @ theta)
+    return np.array(y_pred)
+# Predict and plot
+X_test = np.linspace(-3, 3, 100)
+Y_pred = lwr(X_test, X, Y, tau=0.5)
+
+plt.scatter(X, Y, color='red', label='Data')
+plt.plot(X_test, Y_pred, color='blue', label='LWR Curve')
+plt.title("Locally Weighted Regression")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.legend()
+plt.show()
+"""output"""
+  import numpy as np
 import matplotlib.pyplot as plt
 # Sample data
 X = np.linspace(-3, 3, 30)
