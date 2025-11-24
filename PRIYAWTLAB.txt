@@ -1,0 +1,1420 @@
+experiment 1-home page
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Store - Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color:#007bff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    nav {
+      background-color: #0056b3;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+    }
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+    .footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Online Book Store</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="login.html">Login</a>
+    <a href="catalog.html">📖Books</a>
+    <a href="shoppingcart.html">🛒Cart</a>
+    <a href="payment.html">💸Payment</a>
+    <a href="order.html">My orders</a>
+    <a href="profile.html">👩profile</a>
+  </nav>
+
+  <div class="content">
+    <h2>Find Your Favorite Books</h2>
+    <p>Explore thousands of books and order online easily!</p>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Online Book Store</p>
+  </div>
+
+</body>
+</html>
+
+
+
+B) login page
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login & Register</title>
+  <style>
+    body { font-family: Arial; background: #eef; text-align: center; }
+    .box { width: 280px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 10px; }
+    input { width: 90%; margin: 8px 0; padding: 8px; }
+    input[type=submit] { background: #2874f0; color: #fff; border: none; }
+    a { color: #2874f0; text-decoration: none; display: block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Login</h2>
+    <form>
+      <input type="text" placeholder="Username" required><br>
+      <input type="password" placeholder="Password" required><br>
+      <input type="submit" value="Login">
+    </form>
+    <a href="#register">New user? Register</a>
+  </div>
+
+  <div class="box" id="register">
+    <h2>Register</h2>
+    <form>
+      <input type="text" placeholder="Name" required><br>
+      <input type="email" placeholder="Email" required><br>
+      <input type="password" placeholder="Password" required><br>
+      <input type="submit" value="Register">
+    </form>
+    <a href="#login">Already registered? Login</a>
+  </div>
+
+</body>
+</html>
+
+
+c) USER PROFILE
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Page</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f1f3f6;
+      text-align: center;
+      padding: 40px;
+    }
+    .profile-box {
+      background-color: white;
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: #2874f0;
+    }
+    p {
+      text-align: left;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-box">
+    <h2>User Profile</h2>
+    <p><strong>Name:</strong> Our Name</p>
+    <p><strong>Email:</strong> user@example.com</p>
+    <p><strong>Username:</strong> pass123</p>
+    <p><strong>Address:</strong> Hyderabad, India</p>
+  </div>
+
+</body>
+</html>
+
+
+
+D)Books collection
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Catalog</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; background: #f0f0f0; text-align: center; }
+    header { background: #2874f0; color: white; padding: 10px; }
+    .book { display: inline-block; background: #fff; margin: 10px; padding: 10px; width: 150px; box-shadow: 0 0 5px #ccc; }
+    img { width: 100%; height: 180px; object-fit: cover; }
+    button { background: #ff9f00; color: #fff; border: none; padding: 5px 10px; margin-top: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Book Store</h1>
+</header>
+
+<h2>Books Catalog</h2>
+
+<div class="book">
+  <img src="https://via.placeholder.com/150x180" alt="Book 1">
+  <p><b>The Alchemist</b><br>₹249</p>
+  <button>Add</button>
+</div>
+
+<div class="book">
+  <img src="https://via.placeholder.com/150x180" alt="Book 2">
+  <p><b>1984</b><br>₹199</p>
+  <button>Add</button>
+</div>
+
+<div class="book">
+  <img src="https://via.placeholder.com/150x180" alt="Book 3">
+  <p><b>Wings of Fire</b><br>₹180</p>
+  <button>Add</button>
+</div>
+
+</body>
+</html>
+
+
+E)Shopping cart
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+  <style>
+    body { font-family: sans-serif; background: #f2f2f2; margin: 0; text-align: center; }
+    h1 { background: #2874f0; color: white; padding: 15px; margin: 0; }
+    .cart { width: 90%; margin: 20px auto; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 0 5px #ccc; }
+    .item { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+    .item img { width: 60px; height: 80px; border-radius: 5px; }
+    .info { flex: 1; text-align: left; margin-left: 10px; }
+    .price { font-weight: bold; color: green; }
+    .total { text-align: right; margin-top: 10px; font-size: 16px; font-weight: bold; }
+    button { background: #ff9f00; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 15px; }
+    button:hover { background: #fb641b; }
+  </style>
+</head>
+<body>
+
+<h1>🛒 My Shopping Cart</h1>
+
+<div class="cart">
+  <div class="item">
+    <img src="https://via.placeholder.com/60x80" alt="Book 1">
+    <div class="info">
+      <div><strong>The Alchemist</strong></div>
+      <div>Qty: 1</div>
+    </div>
+    <div class="price">₹249</div>
+  </div>
+
+  <div class="item">
+    <img src="https://via.placeholder.com/60x80" alt="Book 2">
+    <div class="info">
+      <div><strong>1984</strong></div>
+      <div>Qty: 2</div>
+    </div>
+    <div class="price">₹398</div>
+  </div>
+
+  <div class="total">Grand Total: ₹647</div>
+  <button>Proceed to Checkout</button>
+</div>
+
+</body>
+</html>
+
+
+
+F)card payment
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Card Payment</title>
+  <style>
+    body { font-family: sans-serif; background: #f2f2f2; display: flex; justify-content: center; padding: 40px; }
+    .form { background: #fff; padding: 20px; border-radius: 8px; width: 300px; box-shadow: 0 0 8px #ccc; }
+    h2 { text-align: center; color: #2874f0; }
+    input {
+      width: 100%; margin: 8px 0; padding: 8px;
+      border: 1px solid #ccc; border-radius: 4px;
+    }
+    button {
+      width: 100%; padding: 10px;
+      background: #2874f0; color: white;
+      border: none; border-radius: 4px; cursor: pointer;
+    }
+    button:hover { background: #1a5cc8; }
+  </style>
+</head>
+<body>
+
+<div class="form">
+  <h2>Card Payment</h2>
+  <input type="text" placeholder="Cardholder Name" required>
+  <input type="text" placeholder="Card Number" maxlength="19" required>
+  <input type="month" required>
+  <input type="number" placeholder="CVV" maxlength="3" required>
+  <button>Pay ₹647</button>
+</div>
+
+</body>
+</html>
+
+
+G) order confirmation
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      text-align: center;
+    }
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      color: #555;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #2874f0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #1859c7;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1>✅ Order Confirmed!</h1>
+  <p>Thank you for your purchase. Your order has been placed successfully.</p>
+  <p>You will receive an email with the order details shortly.</p>
+  <a class="btn" href="index.html">Go to Home</a>
+</div>
+
+</body>
+</html>
+
+
+
+EPERIMENT 2 
+
+// create_users_xml.php
+
+<?php
+$xml = new SimpleXMLElement('<users></users>');
+
+for ($i = 1; $i <= 10; $i++) {
+    $user = $xml->addChild('user');
+    $user->addChild('id', $i);
+    $user->addChild('name', 'User' . $i);
+    $user->addChild('email', 'user' . $i . '@example.com');
+    $user->addChild('phone', '123456789' . $i);
+}
+
+$xml->asXML('users.xml');
+echo "XML file created successfully.";
+?>
+
+
+//2 get_user.php
+<?php
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $xml = simplexml_load_file('users.xml');
+
+    $found = false;
+
+    foreach ($xml->user as $user) {
+        if ((string)$user->id == $id) {
+            echo "<h2>User Details</h2>";
+            echo "ID: " . $user->id . "<br>";
+            echo "Name: " . $user->name . "<br>";
+            echo "Email: " . $user->email . "<br>";
+            echo "Phone: " . $user->phone . "<br>";
+            $found = true;
+            break;
+        }
+    }
+
+    if (!$found) {
+        echo "User with ID $id not found.";
+    }
+} else {
+?>
+    <form method="get">
+        <label for="id">Enter User ID (1–10):</label>
+        <input type="number" name="id" id="id" required>
+        <input type="submit" value="Search">
+    </form>
+<?php
+}
+?>
+
+
+
+EXPERIMENT-3 MERGE 2 ARRAYS AND SORT THEM
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merge and Sort Arrays</title>
+</head>
+<body>
+    <h2>Enter Two Arrays</h2>
+    <form method="post">
+        Array 1 (comma separated): <input type="text" name="array1" required><br><br>
+        Array 2 (comma separated): <input type="text" name="array2" required><br><br>
+        <input type="submit" value="Merge & Sort">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Get input from user
+        $array1 = explode(",", $_POST["array1"]);
+        $array2 = explode(",", $_POST["array2"]);
+
+        // Convert strings to numbers and trim spaces
+        $array1 = array_map('intval', array_map('trim', $array1));
+        $array2 = array_map('intval', array_map('trim', $array2));
+
+        // Merge arrays
+        $mergedArray = array_merge($array1, $array2);
+
+        // Sort numerically
+        sort($mergedArray, SORT_NUMERIC);
+
+        // Print result without indexes
+        echo "<h3>Merged and Sorted Array:</h3>";
+        echo implode(" ", $mergedArray);
+    }
+    ?>
+</body>
+</html>
+
+
+
+EXPERIMENT-4   PHP FILE 
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get file names from form
+    $sourceFile = $_POST['source'];
+    $destinationFile = $_POST['destination'];
+
+    // Check if source file exists
+    if (!file_exists($sourceFile)) {
+        echo "❌ Source file '$sourceFile' does not exist!";
+    } else {
+        // Open source file for reading
+        $sourceHandle = fopen($sourceFile, "r") or die("Unable to open source file!");
+
+        // Read contents
+        $content = fread($sourceHandle, filesize($sourceFile));
+        fclose($sourceHandle);
+
+        // Open destination file in APPEND mode ("a")
+        $destinationHandle = fopen($destinationFile, "a") or die("Unable to open destination file!");
+        fwrite($destinationHandle, $content);
+        fclose($destinationHandle);
+
+        echo "✅ Data has been copied from <b>$sourceFile</b> to <b>$destinationFile</b> (new data appended).";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Copy in PHP</title>
+</head>
+<body>
+    <h2>Copy Data from One File to Another (Append Mode)</h2>
+    <form method="post">
+        <label>Source File Name:</label>
+        <input type="text" name="source" placeholder="e.g., input.txt" required><br><br>
+
+        <label>Destination File Name:</label>
+        <input type="text" name="destination" placeholder="e.g., output.txt" required><br><br>
+
+        <input type="submit" value="Copy File">
+    </form>
+</body>
+</html>
+ 
+
+
+
+
+EXPERIMENT-5 PRIME NUMBERS
+
+
+<?php
+function isPrime($num) {
+    if ($num <= 1) {
+        return false;
+    }
+    for ($i = 2; $i <= sqrt($num); $i++) {
+        if ($num % $i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function printPrimes($start, $end) {
+    echo "Prime numbers between $start and $end are:<br>";
+    for ($i = $start; $i <= $end; $i++) {
+        if (isPrime($i)) {
+            echo $i . " ";
+        }
+    }
+    echo "<br>";
+}
+?>
+
+<form method="post">
+    Start: <input type="number" name="start" required>
+    End: <input type="number" name="end" required>
+    <input type="submit" value="Show Primes">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $start = (int) $_POST["start"];
+    $end = (int) $_POST["end"];
+    printPrimes($start, $end);
+}
+?>
+
+
+
+EXPERIMENT 6 - TO VALIDATE THE REGISTRATION,USER LOGIN,USER PROFILE AND PAYMENT BY CREDIT CARD PAGES USING JAVASCRIPT
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Hub Forms</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+    nav button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .form-section {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+    .form-section.active {
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0 12px 0;
+    }
+    input[type=submit] {
+      width: auto;
+      background: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .profile-data {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 6px;
+    }
+h1{
+color:blue;
+}
+body{
+background-color:grey;
+}
+  </style>
+ 
+  <script>
+    let registeredUser = {}; // store user details temporarily
+
+    // Navigation
+    function showForm(id) {
+      document.querySelectorAll('.form-section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      // auto load profile if chosen
+      if (id === "profile") {
+        displayProfile();
+      }
+    }
+
+    // Registration Validation
+    function validateRegistration() {
+      let name = document.getElementById("reg-name").value.trim();
+      let email = document.getElementById("reg-email").value.trim();
+      let password = document.getElementById("reg-password").value;
+      let confirm = document.getElementById("reg-confirm").value;
+
+      if (name === "") {
+        alert("Name is required!");
+        return false;
+      }
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert("Enter a valid email address!");
+        return false;
+      }
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters!");
+        return false;
+      }
+      if (password !== confirm) {
+        alert("Passwords do not match!");
+        return false;
+      }
+
+      // Save registered user
+      registeredUser = { name, email, password };
+      alert("Registration Successful! Now you can login.");
+      showForm("login");
+      return false;
+    }
+
+    // Login Validation
+    function validateLogin() {
+      let email = document.getElementById("login-email").value.trim();
+      let password = document.getElementById("login-password").value;
+
+      if (email === "" || password === "") {
+        alert("Email and Password are required!");
+        return false;
+      }
+      if (registeredUser.email !== email || registeredUser.password !== password) {
+        alert("Invalid credentials!");
+        return false;
+      }
+      alert("Login Successful!");
+      showForm("profile");
+      return false;
+    }
+
+    // Profile Display
+    function displayProfile() {
+      if (!registeredUser.name) {
+        document.getElementById("profile-info").innerHTML = "<p>No user logged in.</p>";
+        return;
+      }
+      document.getElementById("profile-info").innerHTML = `
+        <div class="profile-data">
+          <p><b>Name:</b> ${registeredUser.name}</p>
+          <p><b>Email:</b> ${registeredUser.email}</p>
+        </div>
+      `;
+    }
+
+    // Payment Validation
+    function validatePayment() {
+      let card = document.getElementById("pay-card").value.trim();
+      let expiry = document.getElementById("pay-expiry").value.trim();
+      let cvv = document.getElementById("pay-cvv").value.trim();
+
+      let cardPattern = /^[0-9]{16}$/;
+      if (!card.match(cardPattern)) {
+        alert("Enter a valid 16-digit card number!");
+        return false;
+      }
+
+      let expiryPattern = /^(0[1-9]|1[0-2])\/\d{2}$/; // MM/YY
+      if (!expiry.match(expiryPattern)) {
+        alert("Enter expiry in MM/YY format!");
+        return false;
+      }
+
+      let cvvPattern = /^[0-9]{3}$/;
+      if (!cvv.match(cvvPattern)) {
+        alert("Enter a valid 3-digit CVV!");
+        return false;
+      }
+
+      alert("Payment Successful!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+
+  <h1>User Portal</h1>
+  <nav>
+    <button onclick="showForm('registration')">Registration</button>
+    <button onclick="showForm('login')">Login</button>
+    <button onclick="showForm('profile')">Profile</button>
+    <button onclick="showForm('payment')">Payment</button>
+  </nav>
+
+  <!-- Registration Form -->
+  <div id="registration" class="form-section active">
+    <h2>Registration</h2>
+    <form onsubmit="return validateRegistration()">
+      <input type="text" id="reg-name" placeholder="Full Name">
+      <input type="text" id="reg-email" placeholder="Email">
+      <input type="password" id="reg-password" placeholder="Password">
+      <input type="password" id="reg-confirm" placeholder="Confirm Password">
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <!-- Login Form -->
+  <div id="login" class="form-section">
+    <h2>User Login</h2>
+    <form onsubmit="return validateLogin()">
+      <input type="text" id="login-email" placeholder="Email">
+      <input type="password" id="login-password" placeholder="Password">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <!-- Profile View -->
+  <div id="profile" class="form-section">
+    <h2>User Profile</h2>
+    <div id="profile-info"></div>
+  </div>
+
+  <!-- Payment Form -->
+  <div id="payment" class="form-section">
+    <h2>Credit Card Payment</h2>
+    <form onsubmit="return validatePayment()">
+      <input type="text" id="pay-card" placeholder="Card Number (16 digits)">
+      <input type="text" id="pay-expiry" placeholder="Expiry (MM/YY)">
+      <input type="password" id="pay-cvv" placeholder="CVV (3 digits)">
+      <input type="submit" value="Pay Now">
+    </form>
+  </div>
+
+</body>
+</html>   
+
+
+
+
+EXPERIMENT 7 - PHP SCRIPT FOR STRING OPERATIONS - LENGTH,COUNT NO OF WORDS,REVERSE OF A STRING AND SEACH FOR A SPECIFIC STRING
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Operations in PHP</title>
+</head>
+<body>
+
+<h2>String Operations</h2>
+
+<form method="post">
+    Enter a string: <input type="text" name="userstring" required><br><br>
+    Enter word to search: <input type="text" name="searchword" required><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $str = $_POST['userstring'];
+    $search = $_POST['searchword'];
+
+    echo "<h3>Results:</h3>";
+
+    echo "<b>a. Length of string:</b> " . strlen($str) . "<br>";
+    echo "<b>b. Number of words:</b> " . str_word_count($str) . "<br>";
+    echo "<b>c. Reverse of string:</b> " . strrev($str) . "<br>";
+
+    $pos = strpos($str, $search);
+    if ($pos !== false) {
+        echo "<b>d. The word '$search' found at position:</b> $pos<br>";
+    } else {
+        echo "<b>d. The word '$search' was not found in the string.</b><br>";
+    }
+}
+?>
+
+</body>
+</html>
+
+
+
+EXPERIMENT 10 - WRITE A JAVA PROGRAM/SERVLET/JSP TO CONNECT TO DATABASE WITH VARIOUS SQL QUERIES - CREATE A TABLE WHICH SHOULD CONTAIN FIELDS : NAME,PASSWORD,EMAIL ID,PHN NO
+
+
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class JDBCUserOperations {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/web_lab"; // Database name: web_lab
+        String user = "root"; // Default MySQL username in XAMPP
+        String password = ""; // Empty password (since phpMyAdmin opens without password)
+
+        Scanner sc = new Scanner(System.in);
+        Connection con = null;
+
+        try {
+            // Step 1: Load JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Step 2: Establish connection
+            con = DriverManager.getConnection(url, user, password);
+            System.out.println("✅ Connected to MySQL database successfully!");
+
+            // Step 3: Create 'users' table if not exists
+            String createTable = """
+                CREATE TABLE IF NOT EXISTS users (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(50) NOT NULL,
+                    password VARCHAR(50) NOT NULL,
+                    email VARCHAR(100) UNIQUE NOT NULL,
+                    phone VARCHAR(15)
+                )
+            """;
+            try (Statement st = con.createStatement()) {
+                st.executeUpdate(createTable);
+            }
+
+            // Menu-driven program
+            while (true) {
+                System.out.println("\n===== USER DATABASE MENU =====");
+                System.out.println("1. Register new user");
+                System.out.println("2. View all users");
+                System.out.println("3. Search user by name");
+                System.out.println("4. Update user phone number");
+                System.out.println("5. Delete user by email");
+                System.out.println("6. Exit");
+                System.out.print("Enter your choice: ");
+                int choice = sc.nextInt();
+                sc.nextLine(); // consume newline
+
+                switch (choice) {
+                    case 1:
+                        System.out.print("Enter Name: ");
+                        String name = sc.nextLine();
+                        System.out.print("Enter Password: ");
+                        String pass = sc.nextLine();
+                        System.out.print("Enter Email: ");
+                        String email = sc.nextLine();
+                        System.out.print("Enter Phone Number: ");
+                        String phone = sc.nextLine();
+
+                        String insertQuery = "INSERT INTO users (name, password, email, phone) VALUES (?, ?, ?, ?)";
+                        try (PreparedStatement ps = con.prepareStatement(insertQuery)) {
+                            ps.setString(1, name);
+                            ps.setString(2, pass);
+                            ps.setString(3, email);
+                            ps.setString(4, phone);
+                            ps.executeUpdate();
+                            System.out.println("✅ User registered successfully!");
+                        }
+                        break;
+
+                    case 2:
+                        String selectQuery = "SELECT * FROM users";
+                        try (Statement st = con.createStatement();
+                             ResultSet rs = st.executeQuery(selectQuery)) {
+                            System.out.println("\n--- Registered Users ---");
+                            System.out.printf("%-5s %-15s %-25s %-15s%n", "ID", "Name", "Email", "Phone");
+                            System.out.println("-----------------------------------------------------------");
+                            while (rs.next()) {
+                                System.out.printf("%-5d %-15s %-25s %-15s%n",
+                                        rs.getInt("id"),
+                                        rs.getString("name"),
+                                        rs.getString("email"),
+                                        rs.getString("phone"));
+                            }
+                        }
+                        break;
+
+                    case 3:
+                        System.out.print("Enter name to search: ");
+                        String searchName = sc.nextLine();
+                        String searchQuery = "SELECT * FROM users WHERE name LIKE ?";
+                        try (PreparedStatement ps = con.prepareStatement(searchQuery)) {
+                            ps.setString(1, "%" + searchName + "%");
+                            ResultSet rs = ps.executeQuery();
+                            boolean found = false;
+                            while (rs.next()) {
+                                if (!found) {
+                                    System.out.println("\n--- Search Results ---");
+                                    System.out.printf("%-5s %-15s %-25s %-15s%n", "ID", "Name", "Email", "Phone");
+                                    System.out.println("-----------------------------------------------------------");
+                                    found = true;
+                                }
+                                System.out.printf("%-5d %-15s %-25s %-15s%n",
+                                        rs.getInt("id"),
+                                        rs.getString("name"),
+                                        rs.getString("email"),
+                                        rs.getString("phone"));
+                            }
+                            if (!found) System.out.println("❌ No user found with name: " + searchName);
+                        }
+                        break;
+
+                    case 4:
+                        System.out.print("Enter email of user to update: ");
+                        String updateEmail = sc.nextLine();
+                        System.out.print("Enter new phone number: ");
+                        String newPhone = sc.nextLine();
+
+                        String updateQuery = "UPDATE users SET phone=? WHERE email=?";
+                        try (PreparedStatement ps = con.prepareStatement(updateQuery)) {
+                            ps.setString(1, newPhone);
+                            ps.setString(2, updateEmail);
+                            int rows = ps.executeUpdate();
+                            if (rows > 0)
+                                System.out.println("✅ Phone number updated successfully!");
+                            else
+                                System.out.println("❌ No user found with that email.");
+                        }
+                        break;
+
+                    case 5:
+                        System.out.print("Enter email of user to delete: ");
+                        String deleteEmail = sc.nextLine();
+                        String deleteQuery = "DELETE FROM users WHERE email=?";
+                        try (PreparedStatement ps = con.prepareStatement(deleteQuery)) {
+                            ps.setString(1, deleteEmail);
+                            int rows = ps.executeUpdate();
+                            if (rows > 0)
+                                System.out.println("✅ User deleted successfully!");
+                            else
+                                System.out.println("❌ No user found with that email.");
+                        }
+                        break;
+
+                    case 6:
+                        System.out.println("👋 Exiting program...");
+                        sc.close();
+                        con.close();
+                        System.exit(0);
+
+                    default:
+                        System.out.println("⚠ Invalid choice! Try again.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+EXPEIMENT 11 - Write a JSP which does the following job:
+Insert the details of the 3 or 4 users who register with the web site (week9) by using registration form. Authenticate the user when he submits the login form using the user name and password from the database.
+
+
+
+
+register.jsp:
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Online Book Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <main>
+      <h2>User Registration</h2>
+      <!-- Form sends data to register_action.jsp using POST method -->
+      <form action="register_action.jsp" method="post">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Register">
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Online Book Store</p>
+    </footer>
+  </div>
+
+</body>
+</html>
+
+register_action.jsp:
+
+<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; padding: 50px; }
+        .success { color: green; }
+        .error { color: red; }
+        a { text-decoration: none; color: #444; }
+    </style>
+</head>
+<body>
+
+<%
+    // Get form data
+    String username = request.getParameter("fullname");
+    String email = request.getParameter("email");
+    String password = request.getParameter("password");
+
+    if(username != null && email != null && password != null){
+        Connection conn = null;
+        PreparedStatement pst = null;
+
+        try {
+            // Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Connect to database (change user/password if needed)
+            String dbURL = "jdbc:mysql://localhost:3306/bookstore_db";
+            String dbUser = "root";
+            String dbPass = "";
+            conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
+
+            // Insert data into users table
+            String sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, username);
+            pst.setString(2, email);
+            pst.setString(3, password);
+
+            int row = pst.executeUpdate();
+
+            if(row > 0){
+%>
+                <h2 class="success">Registration Successful!</h2>
+                <p>Welcome, <%= username %>!</p>
+                <p><a href="login.jsp">Click here to login</a></p>
+<%
+            } else {
+%>
+                <h2 class="error">Registration Failed!</h2>
+                <p>Please try again.</p>
+<%
+            }
+        } catch(Exception e){
+%>
+            <h2 class="error">Error: <%= e.getMessage() %></h2>
+<%
+        } finally {
+            if(pst != null) try { pst.close(); } catch(Exception e){}
+            if(conn != null) try { conn.close(); } catch(Exception e){}
+        }
+    } else {
+%>
+    <h2 class="error">All fields are required!</h2>
+<%
+    }
+%>
+
+</body>
+</html>
+
+
+login.jsp:
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Online Book Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <main>
+      <h2>User Login</h2>
+      <form action="login_action.jsp" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Login">
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Online Book Store</p>
+    </footer>
+  </div>
+
+</body>
+</html>
+
+login_action.jsp:
+
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.servlet.http.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String email = request.getParameter("email");
+    String password = request.getParameter("password");
+
+    String url = "jdbc:mysql://localhost:3306/bookstore_db";
+    String dbUser = "root"; // XAMPP default user
+    String dbPass = "";     // XAMPP default password
+
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(url, dbUser, dbPass);
+
+        String sql = "SELECT * FROM users WHERE email=? AND password=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, email);
+        ps.setString(2, password);
+
+        ResultSet rs = ps.executeQuery();
+
+        if(rs.next()) {
+            // Store user info in session
+            HttpSession sessionObj = request.getSession();
+            sessionObj.setAttribute("username", rs.getString("username"));
+            sessionObj.setAttribute("email", rs.getString("email"));
+
+            // Redirect to profile page
+            response.sendRedirect("profile.jsp");
+        } else {
+            out.println("<h3 style='color:red;text-align:center;'>Invalid Email or Password!</h3>");
+            out.println("<p style='text-align:center;'><a href='login.jsp'>Try Again</a></p>");
+        }
+
+        rs.close();
+        ps.close();
+        con.close();
+
+    } catch(Exception e) {
+        out.println("Error: " + e.getMessage());
+    }
+%>
+
+profile.jsp:
+
+<%@ page import="javax.servlet.http.*" %>
+<%
+    HttpSession sessionObj = request.getSession(false);
+    if (sessionObj == null || sessionObj.getAttribute("username") == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+
+    String username = (String) sessionObj.getAttribute("username");
+    String email = (String) sessionObj.getAttribute("email");
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <main class="profile-container">
+    <h2>User Profile</h2>
+    <div class="info">
+      <p><strong>Name:</strong> <%= username %></p>
+      <p><strong>Email:</strong> <%= email %></p>
+      
+    </div>
+
+    <hr>
+
+    <div class="buttons">
+      <button>Edit Profile</button>
+      <button>Change Password</button>
+      <form action="logout.jsp" method="post" style="display:inline;">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
+
+
+
+
+EXPERIMENT 12 - CREATE A SIMPLE VISUAL BEAM WITH A AREA FILLED WIT A COLOR
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Visual Bean</title>
+<style>
+  #bean {
+    width: 150px;
+    height: 150px;
+    margin: 50px auto;
+    cursor: pointer;
+    transition: background-color 0.3s, border-radius 0.3s;
+  }
+</style>
+</head>
+<body>
+
+<div id="bean"></div>
+
+<script>
+  let shape = true;
+
+  const bean = document.getElementById('bean');
+
+  function getRandomColor() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  }
+
+  function updateBean() {
+    bean.style.backgroundColor = getRandomColor();
+    bean.style.borderRadius = shape ? '0%' : '50%';
+  }
+
+  updateBean();
+
+  bean.addEventListener('click', () => {
+    shape = !shape;
+    updateBean();
+  });
+</script>
+
+</body>
+</html>
+
+
+
+1.even
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Check Even or Odd</h2>
+
+<form method="post">
+    Enter a number:
+    <input type="number" name="num" required>
+    <input type="submit" value="Check">
+</form>
+
+<hr>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $n = $_POST["num"];   // Read number from form
+
+    if ($n % 2 == 0) {
+        echo "<h3>$n is Even</h3>";
+    } else {
+        echo "<h3>$n is Odd</h3>";
+    }
+}
+?>
+
+
+
+
+
+2.welcome
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo "Welcome";
+?>
+
+</body>
+</html>
+
+</body>
+</html>
+
+
+3.calculator
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Simple Calculator</h2>
+
+<form method="post">
+    Enter First Number: <br>
+    <input type="number" name="num1" required><br><br>
+
+    Enter Second Number: <br>
+    <input type="number" name="num2" required><br><br>
+
+    Choose Operation: <br>
+    <select name="op">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="">Multiplication ()</option>
+        <option value="/">Division (/)</option>
+    </select>
+
+    <br><br>
+    <input type="submit" value="Calculate">
+</form>
+
+<hr>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $a = $_POST["num1"];
+    $b = $_POST["num2"];
+    $op = $_POST["op"];
+
+    echo "<h3>Result: </h3>";
+
+    if ($op == "+") {
+        echo $a + $b;
+    }
+    elseif ($op == "-") {
+        echo $a - $b;
+    }
+    elseif ($op == "*") {
+        echo $a * $b;
+    }
+    elseif ($op == "/") {
+        if ($b == 0) {
+            echo "Cannot divide by zero!";
+        } else {
+            echo $a / $b;
+        }
+    }
+}
+?>
+
+</body>
+</html>
+
+
+4.Greatest OF 3 NUMBERS
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greatest of Three Numbers</title>
+</head>
+<body>
+
+<h2>Find Greatest of Three Numbers</h2>
+
+<form method="post">
+    Enter first number: <input type="number" name="n1" required><br><br>
+    Enter second number: <input type="number" name="n2" required><br><br>
+    Enter third number: <input type="number" name="n3" required><br><br>
+    <input type="submit" value="Find Greatest">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $a = $_POST['n1'];
+    $b = $_POST['n2'];
+    $c = $_POST['n3'];
+
+    echo "<h3>Greatest Number: ";
+
+    if ($a > $b && $a > $c) {
+        echo $a;
+    } else if ($b > $a && $b > $c) {
+        echo $b;
+    } else {
+        echo $c;
+    }
+
+    echo "</h3>";
+}
+?>
+
+</body>
+</html>
+
+
